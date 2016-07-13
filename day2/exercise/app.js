@@ -1,9 +1,9 @@
 // app.js
 
 $(document).ready(function (){
-	getCharactersFromAPI();
+	// getCharactersFromAPI();
 
-
+	$(".js-fetch-characters").on("click", fetchCharacters);
 
 	$(".js-character-form").on("submit", function(event){
 							//if you hit "enter" or click
@@ -46,7 +46,7 @@ function getCharactersFromAPI() {
 	});
 }
 function updateList(response) {
-	$(".js-character-list").empty()
+	$(".js-character-list").empty();
 	$(".js-character-list").append();
 	getCharactersFromAPI();
 }
@@ -74,6 +74,38 @@ function appendCharacter(character){
 
 }
 
+function fetchCharacters(){
+	var listContent = `
+	<li> 
+	<h3> Yoda </h3>
+	<ul>
+	<li> Occupation: Grandmaster </li>
+	<li> Weapon: Talking backwards </li>
+	</ul>
+	</li>
+
+	<li> 
+	<h3> Obi-Wan Kenobi </h3>
+	<ul>
+	<li> Occupation: Liar </li>
+	<li> Weapon: Lies </li>
+	</ul>
+	</li>
+
+	<li> 
+	<h3> C-3PO </h3>
+	<ul>
+	<li> Occupation: Protocol Droid </li>
+	<li> Weapon: Falling Down </li>
+	</ul>
+	</li>
+	`;
+	// $(".js-character-list").empty();
+	// $(".js-character-list").append(html);
+	//is the same as the line below
+	$(".js-character-list").html(listContent);
+	// alert("FETCH CHARACTERS");
+}
 function characterLoadError(err) {
 	console.log("Error", err);
 }
