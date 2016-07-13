@@ -1,44 +1,43 @@
-<!-- characters.html -->
 <!DOCTYPE html>
 <html>
-  <head>
-  	<title>Events Practice</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
- <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
- <script src="app.js"></script>
-  </head>
-  <body>
-  	<h1> AJAX Post setup </h1>
-  	
-<form class="js-character-form">
+<head>
+  <title> AJAX POST Setup </title>
+  <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <h1> Ironhack Characters </h1>
 
-	
-	<div>
-		<label for="name">Name</label>
-	<input type="text" id="name" placeholder="C-3PO">
-</div>
+  <h2> Add a character </h2>
 
-<div>
-	<label for="occupation">Occupation</label>
-	<input type="text" id="occupation" placeholder="Protocol Droid">
-</div>
-<div>
-	<label for="weapon">Weapon</label>
-	<input type="text" id="weapon" placeholder="Comic Relief">
-</div>
-	<button type="submit" class="js-character-submit">
-		Create new character
-	</button>
-	</form>
-	<h2> List of Characters </h2>
-	<button type="submit" class="js-fetch-characters">
-		Retreive list of Characters
-	</button>
+  <form class="js-character-form">
+    <div>
+      <label for="name"> Name </label>
+      <input class="js-name-input" type="text" name="name" placeholder="C-3PO">
+    </div>
 
-	<ul class="js-character-list">
-  	</ul>
+    <div>
+      <label for="occupation"> Occupation </label>
+      <input class="js-occupation-input" type="text" name="occupation" placeholder="Protocol Droid">
+    </div>
+
+    <div>
+      <label for="weapon"> Weapon </label>
+      <input class="js-weapon-input" type="text" name="weapon" placeholder="Comic Relief">
+    </div>
+
+    <button type="submit">
+      Create new character
+    </button>
+  </form>
 
 
-<script type="text/javascript">
+  <h2> List of characters </h2>
+
+  <button class="js-fetch-characters">
+    Retrieve list of characters
+  </button>
+
+  <ul class="js-characters-list"></ul>
 </body>
 </html>

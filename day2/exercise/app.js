@@ -1,111 +1,87 @@
-// app.js
+$(document).ready(function () {
 
-$(document).ready(function (){
-	// getCharactersFromAPI();
+  $(".js-character-form").on("submit", createCharacter);
 
-	$(".js-fetch-characters").on("click", fetchCharacters);
-
-	$(".js-character-form").on("submit", function(event){
-							//if you hit "enter" or click
-		//grab information from form
-		event.preventDefault();
-		console.log("FORM SUBMITTED");
-		var name = $("#name").val();
-		var occupation = $("#occupation").val();
-		var weapon = $("#weapon").val();
-		//create "params" hash
-		var params = {
-			name: name,
-			occupation: occupation,
-			weapon: weapon 
-		};
-		
-		
-
-		$.ajax({
-			type: "POST",
-			url: "https://ironhack-characters.herokuapp.com/characters",
-			data: params,
-			//gives back JSON
-			success: updateList,
-			error: characterError
-
-		});
+  $(".js-fetch-characters").on("click", fetchCharacters);
 
 });
 
 
-});
-function getCharactersFromAPI() {
-	$.ajax({
-		type: "GET",
-		url: "https://ironhack-characters.herokuapp.com/characters",
-		success: showCharacters,
-		error: characterLoadError
 
-	});
-}
-function updateList(response) {
-	$(".js-character-list").empty();
-	$(".js-character-list").append();
-	getCharactersFromAPI();
-}
+function createCharacter (event) {
+  event.preventDefault();
 
-function characterError(err) {
-	console.log("Error", err);
-}
+  var newName = $(".js-name-input").val();
+  var newOccupation = $(".js-occupation-input").val();
+  var newWeapon = $(".js-weapon-input").val();
 
-function showCharacters(response){
-	response.forEach(function(character) {
-		appendCharacter(character);
-	});
+  var newCharacter = {
+    name: newName,
+    occupation: newOccupation,
+    weapon: newWeapon
+  };
+
+  // POST  https://ironhack-characters.herokuapp.com/characters
+  $.ajax({
+    type: "POST",
+    url: "https://ironhack-characters.herokuapp.com/characters",
+    data: newCharacter,
+    success: showNewCharacter,
+    error: handleError
+  });
 }
 
-function appendCharacter(character){
-	var html = `
-		<li>
-		Name: ${character.name}
-		Occupation: ${character.occupation}
-		Weapon: ${character.weapon}
-		</li>
-		`;
+function showNewCharacter () {
+  var newName = $(".js-name-input").val();
+  var newOccupation = $(".js-occupation-input").val();
+  var newWeapon = $(".js-weapon-input").val();
 
-		$(".js-character-list").append(html);
+  var listContent = `
+    <li>
+      <h3> ${newName} </h3>
+      <ul>
+        <li> Occupation: ${newOccupation} </li>
+        <li> Weapon: ${newWeapon} </li>
+      </ul>
+    </li>
+  `;
 
+  $(".js-characters-list").append(listContent);
 }
 
-function fetchCharacters(){
-	var listContent = `
-	<li> 
-	<h3> Yoda </h3>
-	<ul>
-	<li> Occupation: Grandmaster </li>
-	<li> Weapon: Talking backwards </li>
-	</ul>
-	</li>
 
-	<li> 
-	<h3> Obi-Wan Kenobi </h3>
-	<ul>
-	<li> Occupation: Liar </li>
-	<li> Weapon: Lies </li>
-	</ul>
-	</li>
 
-	<li> 
-	<h3> C-3PO </h3>
-	<ul>
-	<li> Occupation: Protocol Droid </li>
-	<li> Weapon: Falling Down </li>
-	</ul>
-	</li>
-	`;
-	// $(".js-character-list").empty();
-	// $(".js-character-list").append(html);
-	//is the same as the line below
-	$(".js-character-list").html(listContent);
-	// alert("FETCH CHARACTERS");
+function fetchCharacters () {
+  $.ajax({
+    type: "GET",
+    url: "https://ironhack-characters.herokuapp.com/characters",
+    success: showCharacters,
+    error: handleError
+  });
 }
-function characterLoadError(err) {
-	console.log("Error", err);
+
+
+function showCharacters (response) {
+  var charactersArray = response;
+
+  $(".js-characters-list").empty();
+
+  charactersArray.forEach(function (theCharacter) {
+    var listContent = `
+      <li>
+        <h3> ${theCharacter.name} </h3>
+        <ul>
+          <li> Occupation: ${theCharacter.occupation} </li>
+          <li> Weapon: ${theCharacter.weapon} </li>
+        </ul>
+      </li>
+    `;
+
+    $(".js-characters-list").append(listContent);
+  });
+}
+
+function handleError (error) {
+  console.log("Oh no! There was an error.");
+  console.log(error.responseText);
 }
