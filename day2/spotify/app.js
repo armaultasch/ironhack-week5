@@ -69,12 +69,16 @@ function getAlbums() {
 		console.log(response);
 		$(".js-artist-list").empty();
 		$(".js-album-list").empty();
+		$(".js-track-list").empty();
 		var artistID = (response.artists.items[0].id);
 		var listArtist = `
 		<li>
 		<h3> ${response.artists.items[0].name} </h3>
 		<ul>
 		<li> Photos: <img class="artistPhoto" data-artist-id = "${artistID}" src="${response.artists.items[0].images[0].url}" height="400" width="600"> </li>
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  See Albums
+</button>
 		</ul>
 		</li>
 		`;
@@ -94,19 +98,27 @@ function showAlbum(response) {
 			var listAlbum = `
 			 <li>
 			 <ul class="albumName" data-album-id = "${album.id}" >
-        <li> <h3> ${album.name} </h3> </li>
+        <li><h4>Album Name -- <strong> ${album.name} </strong></h4></li>
+       
+        <button type="button" class="btn btn-tracks btn-lg" data-toggle="modal" data-target="#myModal">
+  Tracks
+</button>
         </ul>
       </li>
 			`; $(".js-album-list").append(listAlbum);
 		});
 		getTracks();
 		
-	// 	$(".artistPhoto").on("click", function(event){
-	// 	console.log("sup");
-	// 	getAlbums(artistID);
-	// });
 	}
 
 	function showTracks (response) {
 		console.log(response);
+		$(".js-track-list").empty();
+		response.items.forEach(function (track) {
+			var listTracks = `
+			<li>
+			<h3> ${track.name}</h3>
+			</li>
+			`; $(".js-track-list").append(listTracks);
+		});
 	}
