@@ -1,5 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 PokemonApp.Pokemon = class {
 	constructor (pokemonUri) {
 		this.id = PokemonApp.idFromUri( pokemonUri);
@@ -32,7 +30,6 @@ PokemonApp.Pokemon = class {
 </button> </li>
 			</ul>
 			</li>
-
 			`; $(".js-pkmn-evolutions").append(evolutions);
 			
 			response.types.forEach (function (x) {
@@ -89,7 +86,6 @@ PokemonApp.Pokemon = class {
 </button> </li>
 			</ul>
 			</li>
-
 			`; $(".js-back-evolutions").html(back);
 			$(".js-back-evolutions").on("click", function (event) {
 				event.preventDefault();
@@ -126,6 +122,28 @@ PokemonApp.Pokemon = class {
 
 	});
 	}
+
+	function getSprites(pokePhoto) {
+	$.ajax({
+		type: "GET",
+		url: pokePhoto,
+		success: function (response) {
+			 console.log(response);
+			
+		var lookPoke = `
+	
+		<ul> 
+		<li> ${response.pokemon.name} </li>
+		<img src= "http://pokeapi.co/${response.image}" height="200" width="400">
+		
+		</ul>
+		
+		`;
+		$(".js-evolution-sprites").append(lookPoke);
+			}
+
+	});
+	}
 	
 	function getEvols(evolPoke) {
 		$.ajax({
@@ -133,19 +151,24 @@ PokemonApp.Pokemon = class {
 			url: evolPoke,
 			success: function (response) {
 				console.log(response);
-				var pokeEvol = `
-		<li>
-		<ul>
-		<li> <img src= "http://pokeapi.co/${response.sprites[0].resource_uri}" height="200" width="400"> </li>
+
+				getSprites(response.sprites[0].resource_uri);
+		// 		var pokeEvol = `
+		// <li>
+		// <ul>
+		// <li> ${response.sprites[0].resource_uri}</li>
 		
-		</ul>
-		</li>
-		`;
-		$(".js-evolution-sprites").append(pokeEvol);
+		// </ul>
+		// </li>
+		// `;
+		// $(".js-evolution-sprites").append(pokeEvol);
 			}
 
 		});
 	}
+
+
+
 
 	function getDesc(pokeDesc) {
 	$.ajax({

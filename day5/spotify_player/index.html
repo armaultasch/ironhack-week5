@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+ <script src="app.js"></script>
+</head>
+<body>
+	<div class="widget">
+		<div class="header">
+		<!-- Try adding/removing these classes: -->
+		<!-- disabled -->
+		<!-- playing -->
+		<div class="btn-play button disabled"></div>
+
+		<div class="metadata">
+		  <p class="title"></p>
+		  <p class="author"></p>
+
+		  <div class="seekbar">
+		    <progress id="progressBar" value="0" max="30"></progress>
+		  </div>
+		</div>
+		</div>
+		<div class="cover">
+	
+		</div>
+
+		<div class="js-song-play">
+		</div>
+		<br>
+	</div>
+	<form class="js-song-form">
+<div>
+		<label for="song">Song Name</label>
+	<input class="searchbox" type="text" id="song" placeholder="song">
+</div>
+
+	<button type="submit" class="js-song-submit">
+		Search
+	</button>
+
+	
+        
+
+
+
+
+
+</form>
+</body>
+</html>
