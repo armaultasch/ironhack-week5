@@ -20474,3 +20474,84 @@ Started GET "/api/v1/sprite/25/" for ::1 at 2016-07-15 16:02:04 -0400
 Processing by PokemonApiController#forward as */*
   Parameters: {"uri"=>"sprite/25"}
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-15 18:36:12 -0400
+Processing by PokemonController#index as HTML
+  Rendered pokemon/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 420ms (Views: 410.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/pokemon_solid-webfont.woff2" for ::1 at 2016-07-15 18:36:13 -0400
+
+
+Started GET "/api/pokemon/23" for ::1 at 2016-07-15 18:36:16 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"pokemon/23"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/description/6971/" for ::1 at 2016-07-15 18:36:16 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"description/6971"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/sprite/24/" for ::1 at 2016-07-15 18:36:16 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"sprite/24"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/pokemon/24/" for ::1 at 2016-07-15 18:36:20 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"pokemon/24"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/sprite/25/" for ::1 at 2016-07-15 18:36:20 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"sprite/25"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/pokemon/17" for ::1 at 2016-07-15 18:36:25 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"pokemon/17"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/description/6880/" for ::1 at 2016-07-15 18:36:25 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"description/6880"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/sprite/18/" for ::1 at 2016-07-15 18:36:25 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"sprite/18"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/pokemon/24/" for ::1 at 2016-07-15 18:36:41 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"pokemon/24"}
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/pokemon/18/" for ::1 at 2016-07-15 18:36:41 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"pokemon/18"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/sprite/25/" for ::1 at 2016-07-15 18:36:41 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"sprite/25"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/sprite/19/" for ::1 at 2016-07-15 18:36:41 -0400
+Processing by PokemonApiController#forward as */*
+  Parameters: {"uri"=>"sprite/19"}
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms)

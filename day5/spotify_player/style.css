@@ -43,7 +43,9 @@
   cursor: pointer;
   border-color: #666;
 }
-
+.js-song-form {
+  text-align: center;
+}
 .btn-play:hover:after {
   border-left-color: #666;
 }

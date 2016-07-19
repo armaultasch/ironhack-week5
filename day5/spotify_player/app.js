@@ -4,6 +4,7 @@ $(document).ready(function (){
 	$(".js-song-form").on("submit", function(event){
 		event.preventDefault();
 		fetchSong();
+		$(".js-show-artist").on("click", showModal);
 	});
 
 	$(".button").on("click", playMusic);
@@ -18,6 +19,12 @@ function fetchSong(){
 	
 	}
 
+	function showModal () {
+		// $(".js-artist-name").text(searchTerm.artists[0].name);
+		// $('.js-artist-photo').prop("src");
+		$(".js-modal").modal("show");
+	}
+
 function getSong(searchTerm) {
 	console.log("boo!!");
 	$.ajax({
@@ -25,6 +32,8 @@ function getSong(searchTerm) {
 		url: "https://api.spotify.com/v1/search?type=track&query=" + searchTerm,
 		success: function (response) {
 			console.log(response);
+			$(".cover").empty();
+			$(".js-song-play").empty();
 			$(".button").removeClass("disabled");
 			$(".title").text(response.tracks.items[0].name);
 			$(".author").text(response.tracks.items[0].artists[0].name);
